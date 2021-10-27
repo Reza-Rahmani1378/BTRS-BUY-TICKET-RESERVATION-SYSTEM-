@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="/webjars/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div th:include="header.html"></div>
+<div class="container text-center">
+        <span style="display: inline" th:if="${customerType.name() == 'MALE'}">
+            <p style="display: inline">
+               آقای
+            </p>
+            <p style="display: inline" th:text="${customer.firstName}">
+            </p>
+            <p>
+                .خرید بلیط شما با موفقیت انجام شد،
+            </p>
+        </span>
+
+    <span style="display: inline" th:if="${customerType.name() == 'FEMALE'}">
+            <p style="display: inline">
+               خانوم
+            </p>
+            <p style="display: inline" th:text="${customer.firstName}">
+            </p>
+            <p>
+                .خرید بلیط شما با موفقیت انجام شد،
+            </p>
+        </span>
+
+    <h4><a th:href="@{/login}">Click here to Login</a></h4>
+</div>
+
+
+</body>
+</html>

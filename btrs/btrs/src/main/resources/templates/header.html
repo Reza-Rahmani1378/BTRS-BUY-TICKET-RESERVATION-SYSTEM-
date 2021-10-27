@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+    <link crossorigin="anonymous" href="/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOnesV7Zt27NXFooApmYm81iuXoPkFOJwJ8ERedskinLPMO" rel="stylesheet">
+    <link href=/"css/assets/owl.carousel.css" rel="stylesheet">
+    <link href="/css/assets/owl.theme.default.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="header_content">
+            Bus Ticketing System
+        </div>
+        <div class="main_nav">
+            <ul class="nav nav-pills pull-left">
+                <div th:if="${userType!=null}">
+                    <div th:switch="${userType}">
+                        <div th:case="${userType.ADMIN}">
+                            <li class="nav-item"><a class="nav-link" href="">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="">Company Bus</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/tickets}">Tickets</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="">Destinations</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="">Logout</a></li>
+                        </div>
+
+                        <div th:case="${userType.CUSTOMER}">
+                            <li class="nav-item"><a class="nav-link" th:href="@{/tickets}">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/purchase}">Purses Ticket</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/customerTickets}">My Tickets</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/tickets}">Logout</a></li>
+                        </div>
+
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+<section class="main_contents"></section>
+
+<div class="container"></div>
+<div class="main_contents_inner"></div>
+
+
+</body>
+</html>

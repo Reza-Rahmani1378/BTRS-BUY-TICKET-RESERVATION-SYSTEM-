@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+</head>
+<body>
+<div th:include="header.html"></div>
+<form ; class="register_form" method="post" style="max-width: 350px" th:action="@{/success}"
+      th:object="${gender}">
+    <div class="rs_form_box">
+        <h3 class="form_section_title">
+            Form Question
+        </h3>
+        <div class="form-group ">
+            <label for="name">نام و نام خانوادگی</label>
+            <input id="name" th:field="*{firstName}" type="text">
+        </div>
+        <div>
+            <br>
+            <label>جنسیت</label>
+            <input id="female" name="gender" onclick="myFun(this)" th:field="*{gender}" th:value="FEMALE" type="radio">
+            <label for="male" style="display: inline">
+                مرد
+            </label>
+            <input id="male" name="gender" onclick="myFun(this)" th:field="*{gender}" th:value="MALE" type="radio">
+            <label for="female" style="display:inline;">
+                زن
+            </label>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <div class="rs_btn_group">
+            <button class="btn btn-default" type="submit">تایید</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    function myFun(radio) {
+        var checkboxes = document.getElementsByName('gender');
+
+        checkboxes.forEach(item => {
+            if (item !== radio) {
+                item.checked = false;
+            }
+        })
+    }
+</script>
+</body>
+</html>
